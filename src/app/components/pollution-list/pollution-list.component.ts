@@ -32,11 +32,6 @@ export class PollutionListComponent implements OnInit {
     this.pollutionService.getAll().subscribe(p => this.pollutions = p);
   }
 
-  applyFilters() {
-    this.pollutionService.filterPollutions(this.typeFilter, this.lieuFilter)
-      .subscribe(p => this.pollutions = p);
-  }
-
   deletePollution(id: number, event: Event) {
     event.stopPropagation();
     this.pollutionService.delete(id).subscribe(() => {
