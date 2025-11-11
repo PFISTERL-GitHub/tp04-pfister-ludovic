@@ -1,6 +1,23 @@
 <div class="pollution-list-container">
   <h2>Liste des pollutions signalées</h2>
 
+  <div class="filters">
+  <label>Type :</label>
+  <select [(ngModel)]="typeFilter">
+    <option value="">Tous</option>
+    <option>Plastique</option>
+    <option>Chimique</option>
+    <option>Dépôt sauvage</option>
+    <option>Eau</option>
+    <option>Air</option>
+    <option>Autre</option>
+  </select>
+  <label>Lieu :</label>
+  <input type="text" [(ngModel)]="lieuFilter" placeholder="Filtrer par lieu">
+
+  <button (click)="applyFilters()">Filtrer</button>
+</div>
+
   <app-pollution-form (pollutionAdded)="onPollutionAdded($event)"></app-pollution-form>
 
   <ul>

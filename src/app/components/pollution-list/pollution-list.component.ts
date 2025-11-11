@@ -15,6 +15,8 @@ import { PollutionFormComponent } from '../pollution-form/pollution-form.compone
 export class PollutionListComponent implements OnInit {
   pollutions: Pollution[] = [];
   selectedPollution?: Pollution;
+  typeFilter = '';
+  lieuFilter = '';
 
   constructor(private pollutionService: PollutionService) {}
 
@@ -24,6 +26,15 @@ export class PollutionListComponent implements OnInit {
 
   selectPollution(p: Pollution) {
     this.selectedPollution = p;
+  }
+
+  loadPollutions() {
+    this.pollutionService.getAll().subscribe(p => this.pollutions = p);
+  }
+
+  applyFilters() {
+    this.pollutionService.filterPollutions(this.typeFilter, this.lieuFilter)
+      .subscribe(p => this.pollutions = p);
   }
 
   deletePollution(id: number, event: Event) {

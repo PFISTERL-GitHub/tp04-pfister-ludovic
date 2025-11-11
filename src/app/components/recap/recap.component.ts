@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Pollution } from '../pollution.model';
+import { Pollution } from '../../models/pollution.model';
 
 
 @Component({

@@ -49,4 +49,15 @@ export class PollutionService {
     this.pollutions$.next(current);
     return of(true).pipe(delay(300));
   }
+
+  filterPollutions(type?: string, lieu?: string): Observable<Pollution[]> {
+    let filtered = this.pollutions$;
+    if (type) {
+      filtered = filtered.filter(p => p.type === type);
+    }
+    if (lieu) {
+      filtered = filtered.filter(p => p.lieu.toLowerCase().includes(lieu.toLowerCase()));
+    }
+    return of(filtered);
+  }
 }
