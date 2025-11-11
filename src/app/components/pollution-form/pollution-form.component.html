@@ -1,0 +1,46 @@
+<h3>Déclarer une nouvelle pollution</h3>
+<form (ngSubmit)="addPollution()" #form="ngForm">
+
+  <label>Titre :
+    <input [(ngModel)]="pollution.titre" name="titre" required />
+  </label><br>
+
+  <label>Type :
+    <select [(ngModel)]="pollution.type" name="type" required>
+      <option value="">-- Sélectionnez un type --</option>
+      <option>Plastique</option>
+      <option>Chimique</option>
+      <option>Dépôt sauvage</option>
+      <option>Eau</option>
+      <option>Air</option>
+      <option>Autre</option>
+    </select>
+  </label><br>
+
+  <label>Description :
+    <textarea [(ngModel)]="pollution.description" name="description" required></textarea>
+  </label><br>
+
+  <label>Date de l’observation :
+    <input [(ngModel)]="pollution.date" name="date" type="date" required />
+  </label><br>
+
+  <label>Lieu :
+    <input [(ngModel)]="pollution.lieu" name="lieu" required />
+  </label><br>
+
+  <label>Latitude :
+    <input [(ngModel)]="pollution.latitude" name="latitude" type="number" required />
+  </label><br>
+
+  <label>Longitude :
+    <input [(ngModel)]="pollution.longitude" name="longitude" type="number" required />
+  </label><br>
+
+  <label>Photo (URL) :
+    <input [(ngModel)]="pollution.photo" name="photo" />
+  </label><br>
+
+  <button type="submit">Déclarer</button>
+</form>
+

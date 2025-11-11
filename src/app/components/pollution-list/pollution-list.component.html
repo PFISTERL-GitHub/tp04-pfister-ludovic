@@ -1,0 +1,22 @@
+<div class="pollution-list-container">
+  <h2>Liste des pollutions signalées</h2>
+
+  <app-pollution-form (pollutionAdded)="onPollutionAdded($event)"></app-pollution-form>
+
+  <ul>
+    <li *ngFor="let p of pollutions" (click)="selectPollution(p)">
+      <strong>{{ p.titre }}</strong> — {{ p.type }} à {{ p.lieu }} ({{ p.date }})
+      <button (click)="deletePollution(p.id, $event)">Supprimer</button>
+    </li>
+  </ul>
+
+  <app-pollution-detail
+    *ngIf="selectedPollution"
+    [pollution]="selectedPollution"
+    (updated)="onUpdated($event)">
+  </app-pollution-detail>
+
+  <ng-template #noData>
+    <p>Aucune pollution signalée pour le moment.</p>
+  </ng-template>
+</div>

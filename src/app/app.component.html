@@ -1,9 +1,5 @@
 <div class="container">
   <h1>Gestion des Pollutions</h1>
 
-  <app-declaration (pollutionCreated)="lastPollution = $event"></app-declaration>
-
-  <app-recap *ngIf="lastPollution" [pollution]="lastPollution"></app-recap>
-
   <app-pollution-list></app-pollution-list>
 </div>

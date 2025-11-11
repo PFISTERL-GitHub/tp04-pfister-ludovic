@@ -1,0 +1,44 @@
+<div *ngIf="pollution" class="detail">
+  <h3>Détail de la pollution</h3>
+
+  <label>Titre :
+    <input [(ngModel)]="pollution.titre" />
+  </label><br>
+
+  <label>Type :
+    <select [(ngModel)]="pollution.type">
+      <option>Plastique</option>
+      <option>Chimique</option>
+      <option>Dépôt sauvage</option>
+      <option>Eau</option>
+      <option>Air</option>
+      <option>Autre</option>
+    </select>
+  </label><br>
+
+  <label>Description :
+    <textarea [(ngModel)]="pollution.description"></textarea>
+  </label><br>
+
+  <label>Date :
+    <input [(ngModel)]="pollution.date" type="date" />
+  </label><br>
+
+  <label>Lieu :
+    <input [(ngModel)]="pollution.lieu" />
+  </label><br>
+
+  <label>Latitude :
+    <input [(ngModel)]="pollution.latitude" type="number" />
+  </label><br>
+
+  <label>Longitude :
+    <input [(ngModel)]="pollution.longitude" type="number" />
+  </label><br>
+
+  <label>Photo :
+    <input [(ngModel)]="pollution.photo" />
+  </label><br>
+
+  <button (click)="save()">Sauvegarder</button>
+</div>
