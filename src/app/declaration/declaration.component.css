@@ -1,0 +1,32 @@
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+textarea, select, input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #00f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ddd;    
+  color:#000;               
+  cursor: not-allowed;                              
+}
+
+.error {
+  color: #f00;
+}

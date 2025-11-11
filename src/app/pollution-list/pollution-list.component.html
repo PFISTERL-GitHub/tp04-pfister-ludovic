@@ -1,0 +1,21 @@
+<div class="pollution-list-container">
+  <h2>Liste des pollutions signalées</h2>
+
+  <div *ngIf="(pollutions$ | async) as pollutions; else noData">
+    <div *ngIf="pollutions.length > 0; else noData">
+      <ul class="pollution-list">
+        <li *ngFor="let p of pollutions" class="pollution-item">
+          <strong>{{ p.titre }}</strong> — {{ p.type }}<br />
+          {{ p.description }}<br />
+          Coordonnées : {{ p.lieu }} ({{ p.latitude }}, {{ p.longitude }})
+
+          <button (click)="deletePollution(p.id)">Supprimer</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <p>Aucune pollution signalée pour le moment.</p>
+  </ng-template>
+</div>

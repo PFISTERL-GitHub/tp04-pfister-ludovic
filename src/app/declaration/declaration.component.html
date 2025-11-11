@@ -1,0 +1,60 @@
+<div class="container" *ngIf="!submitted">
+  <h2>Déclaration d'une nouvelle pollution</h2>
+
+  <form [formGroup]="pollutionForm" (ngSubmit)="onSubmit()">
+    <label>Titre :</label>
+    <input type="text" formControlName="titre" />
+    <div *ngIf="pollutionForm.get('titre')?.invalid && pollutionForm.get('titre')?.touched" class="error">
+      Le titre est requis.
+    </div>
+
+    <label>Type de pollution :</label>
+    <select formControlName="type">
+      <option value="">Sélectionnez v</option>
+      <option *ngFor="let t of types" [value]="t">{{ t }}</option>
+    </select>
+    <div *ngIf="pollutionForm.get('type')?.invalid && pollutionForm.get('type')?.touched" class="error">
+      Le type est requis.
+    </div>
+
+    <label for="description">Description :</label>
+    <textarea id="description" formControlName="description" rows="4"></textarea>
+    <div *ngIf="pollutionForm.get('description')?.invalid && pollutionForm.get('description')?.touched" class="error">
+      La description est requise.
+    </div>
+
+    <label for="date">Date de l’observation :</label>
+    <input id="date" type="date" formControlName="date" />
+    <div *ngIf="pollutionForm.get('date')?.invalid && pollutionForm.get('date')?.touched" class="error">
+      La date est requise.
+    </div>
+
+    <label for="lieu">Lieu :</label>
+    <input id="lieu" type="text" formControlName="lieu"/>
+    <div *ngIf="pollutionForm.get('lieu')?.invalid && pollutionForm.get('lieu')?.touched" class="error">
+      Le lieu est requis.
+    </div>
+
+    <label for="latitude">Latitude :</label>
+    <input id="latitude" type="number" formControlName="latitude"/>
+    <div *ngIf="pollutionForm.get('latitude')?.invalid && pollutionForm.get('latitude')?.touched" class="error">
+      La latitude doit être un nombre valide.
+    </div>
+
+    <label for="longitude">Longitude :</label>
+    <input id="longitude" type="number" formControlName="longitude"/>
+    <div *ngIf="pollutionForm.get('longitude')?.invalid && pollutionForm.get('longitude')?.touched" class="error">
+      La longitude doit être un nombre valide.
+    </div>
+
+    <label>Photo (URL) :</label>
+    <input type="text" formControlName="photo" />
+
+    <button type="submit" [disabled]="pollutionForm.invalid">Déclarer</button>
+  </form>
+</div>
+<div *ngIf="submitted" class="confirmation">
+  Pollution déclarée avec succès !
+  <br />
+  <button (click)="resetForm()">Ajouter une nouvelle pollution</button>
+</div>

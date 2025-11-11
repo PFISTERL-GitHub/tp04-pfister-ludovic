@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { DeclarationComponent } from './declaration/declaration.component';
+import { RecapComponent } from './recap/recap.component';
+import { PollutionListComponent } from './pollution-list/pollution-list.component';
+import { Pollution } from './pollution.model';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, DeclarationComponent, RecapComponent, PollutionListComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tp04-pollution';
+  lastPollution?: Pollution;
 }
